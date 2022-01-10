@@ -48,9 +48,9 @@ class Hourly extends React.Component {
         <p className={style.date}> {`${date} ${month}`}</p>
         <div className={style.hourCardContainer}>
         {this.state.data.map((hourData, index) => {
-            console.log(hourData);
             return(
             <HourCard 
+                key={index}
                 time={getTime(hourData.dt)}
                 weather={hourData.weather[0].description}
                 icon={hourData.weather[0].icon}

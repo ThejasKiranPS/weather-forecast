@@ -9,7 +9,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "",
+      location: JSON.parse(window.localStorage.getItem('location')).location || "",
       dailyData: [],
     };
   }
@@ -35,16 +35,19 @@ class Home extends React.Component {
     this.setState({ dailyData });
   };
 
-  handleSubmit = (location) => {
+  handleSubmit = async (location) => {
+    await window.localStorage.setItem('location', JSON.stringify({location: location}));
     this.setState({ location }, this.fetchData);
   };
 
   componentDidMount() {
-    console.log("testing");
-    this.handleSubmit("London");
+    if(this.state.location ==="") {
+      this.handleSubmit("London");
+    } else {
+      this.handleSubmit(this.state.location);
+    }
   }
 
-  gethourly= () => this.hourlyData
 
   render() {
     return (
@@ -62,7 +65,7 @@ class Home extends React.Component {
                 to={`/hourly/${this.state.location}/${index}`}
                   >
                 <Card
-                  key={date}
+                  key={index}
                   date={index === 0 ? "Today" : `${date.getDate()} ${month}`}
                   weather={day.weather[0].description}
                   weatherId={day.weather[0].id}
