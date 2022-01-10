@@ -5,6 +5,8 @@
     justify-content: center;
     margin: 10px;
     margin-bottom: 50px;
+    width: 90vw;
+    max-width: 400px;
 }
 
 .card{

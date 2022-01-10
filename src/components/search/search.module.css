@@ -34,6 +34,16 @@
     height: 50px;
     margin: 5px;
     transform: scale(1.1);
+    margin-right: 60px;
+}
+@media (max-width: 400px) {
+    .container {
+        max-width: 240px;
+        max-height: 45px;
+    }
+    .searchBg{
+        width: 50%;
+    }
 }
 .container > input, button {
     border-radius: 10px;

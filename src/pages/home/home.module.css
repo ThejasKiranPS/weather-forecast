@@ -11,8 +11,6 @@
     justify-content: center;
     margin: 20px;
     margin-bottom: 50px !important;
+    width: 90vw;
 }
 
-.item1{
-    width: 80vw;
-}
