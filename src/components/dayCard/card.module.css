@@ -1,6 +1,10 @@
 .container {
     position: relative;
     margin-top: 50px !important;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    margin-bottom: 50px;
 }
 
 .card{
@@ -21,11 +25,11 @@
     height: 100%;
     top: 0px;
     left: 0px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgb(0, 0, 0, 0));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgb(0, 0, 0, 0));
     padding: 20px;
 }
 .overlay:hover {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgb(0, 0, 0, .2));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgb(0, 0, 0, .2));
     cursor: pointer;
 }
 

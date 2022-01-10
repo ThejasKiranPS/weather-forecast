@@ -1,0 +1,12 @@
+.locationContainer {
+    display: flex;
+    margin: 10px;
+}
+.locationContainer > p {
+    margin-left: 5px;
+    font-size: 36px;
+}
+.icon {
+    height: 36px;
+    width: 36px;
+}

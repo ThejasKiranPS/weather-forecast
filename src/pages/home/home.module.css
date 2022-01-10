@@ -1,10 +1,3 @@
-.locationContainer {
-    display: flex;
-    margin: 10px;
-}
-.locationContainer > p {
-    margin-left: 5px;
-}
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
