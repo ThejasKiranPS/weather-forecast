@@ -7,7 +7,7 @@ import Hourly from "./components/hourly/hourly";
 class App extends R.Component {
   render() {
     return (
-      <Router>
+      <Router basename={`${process.env.PUBLIC_URL}/`}>
         <div className={style.container}>
           <Switch>
             <Route exact path="/">
