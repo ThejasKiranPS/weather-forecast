@@ -8,8 +8,10 @@ import LocationText from "../../components/locationText/locationText";
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    let location = JSON.parse(window.localStorage.getItem('location'));
+    location= (location === null) ? "" : location.location || "";
     this.state = {
-      location: JSON.parse(window.localStorage.getItem('location')).location || "",
+      location: location,
       dailyData: [],
     };
   }
