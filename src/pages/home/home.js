@@ -8,7 +8,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            location: 'London'
+            location: ''
         }
     }
     geturl = (location) => `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=8771e349f3087c578d3ad5cadef7ebe3`
@@ -19,10 +19,19 @@ class Home extends React.Component {
         const data = await result.json();
     }
 
+    handleSubmit = (location) => {
+        this.setState({location}, this.fetchData)
+    }
+
+    componentDidMount() {
+        console.log('testing');
+        this.handleSubmit('London');
+    }
+
     render() {
         return(
             <>
-                <Search onSubmit={(location) => this.setState({location}, this.fetchData)} />
+                <Search onSubmit={this.handleSubmit} />
                 <span className={style.locationContainer}>
                     <MdLocationPin />
                     <p>{this.state.location}</p>
