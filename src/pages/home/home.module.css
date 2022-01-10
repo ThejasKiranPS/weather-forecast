@@ -5,3 +5,23 @@
 .locationContainer > p {
     margin-left: 5px;
 }
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.cardContainer > div {
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    
+}
+
+.item1{
+    flex-basis: 100% !important;
+    width: 80vw;
+}

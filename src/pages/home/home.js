@@ -2,6 +2,7 @@ import React from 'react';
 import style from './home.module.css';
 import Search from '../../components/search/search';
 import { MdLocationPin } from 'react-icons/md';
+import Card from '../../components/dayCard/card';
 
 class Home extends React.Component {
 
@@ -31,11 +32,19 @@ class Home extends React.Component {
     render() {
         return(
             <>
-                <Search onSubmit={this.handleSubmit} />
+                <Search onSubmit={this.handleSubmit} placeholder="location" />
                 <span className={style.locationContainer}>
                     <MdLocationPin />
                     <p>{this.state.location}</p>
                 </span>
+                <div className={style.cardContainer}>
+                    <Card classes={style.item1}/>
+                    <Card classes={style.item2}/>
+                    <Card classes={style.item3}/>
+                    <Card classes={style.item4}/>
+                    <Card classes={style.item5}/>
+
+                </div>
 
             </>
         );

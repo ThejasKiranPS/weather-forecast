@@ -39,6 +39,7 @@ class Search extends react.Component {
             className={className(style.searchFg)}
             value={this.state.value} 
             onChange={this.handleChange} 
+            placeholder={this.props.placeholder}
         />
       </form>
     );
