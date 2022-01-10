@@ -1,0 +1,28 @@
+.pill {
+    border-radius: 30px;
+
+    height: 30px;
+    width: 150px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: black;
+    color: white;
+}
+.line {
+  height: 20px;
+  width: 5px;
+  background-color: black;
+}
+.container {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+  margin-left: -75px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -13,15 +13,13 @@
     margin-top: 100px;
 }
 .cardContainer > div {
-    flex-basis: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px;
-    
+    margin-bottom: 50px !important;
 }
 
 .item1{
-    flex-basis: 100% !important;
     width: 80vw;
 }

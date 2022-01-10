@@ -9,15 +9,22 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            location: ''
+            location: '',
+            dailyData: []
         }
     }
     geturl = (location) => `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=8771e349f3087c578d3ad5cadef7ebe3`
+    getdailyurl = (lat,long) => `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=8771e349f3087c578d3ad5cadef7ebe3`
 
     fetchData = async () => {
         console.log(this.geturl(this.state.location))
-        const result = await fetch(this.geturl(this.state.location));
+        let result = await fetch(this.geturl(this.state.location));
         const data = await result.json();
+        result = await fetch(this.getdailyurl(data.city.coord.lat,data.city.coord.lon))
+        let dailyData = await result.json();
+        dailyData = dailyData.daily;
+        this.setState({dailyData});
+
     }
 
     handleSubmit = (location) => {
@@ -29,6 +36,7 @@ class Home extends React.Component {
         this.handleSubmit('London');
     }
 
+
     render() {
         return(
             <>
@@ -38,12 +46,20 @@ class Home extends React.Component {
                     <p>{this.state.location}</p>
                 </span>
                 <div className={style.cardContainer}>
-                    <Card classes={style.item1}/>
-                    <Card classes={style.item2}/>
-                    <Card classes={style.item3}/>
-                    <Card classes={style.item4}/>
-                    <Card classes={style.item5}/>
-
+                    {this.state.dailyData.slice(0,5).map((day,index) => {
+                        const date = new Date(day.dt*1000);
+                        const month = date.toLocaleString('default', { month: 'short' });
+                        return(
+                            <Card
+                                key={date}
+                                date={index===0 ? "Today":`${date.getDate()} ${month}`}
+                                weather={day.weather[0].description}
+                                weatherId={day.weather[0].id}
+                                temp={Math.round((day.temp.day)-273.15)}
+                                classes={style[`item${index+1}`]}
+                            />
+                        );
+                    })}
                 </div>
 
             </>
