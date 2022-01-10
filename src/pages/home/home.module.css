@@ -1,0 +1,7 @@
+.locationContainer {
+    display: flex;
+    margin: 10px;
+}
+.locationContainer > p {
+    margin-left: 5px;
+}
